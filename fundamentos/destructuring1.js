@@ -26,6 +26,6 @@ const { endereco: { logadouro, numero, cep} } = pessoa
 
 console.log(logadouro, numero, cep)
 
-const {conta: {ag, num} } = pessoa
+//const {conta: {ag, num} } = pessoa
 
-console.log(ag,num)
+//console.log(ag,num)
