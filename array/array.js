@@ -27,5 +27,9 @@ console.log(aprovados[1])
 console.log(aprovados[2])
 
 aprovados = ['Bia', 'Carlos', 'Ana']
-aprovados.splice(1, 1, 'Elemento1', 'Elemento2')  
+aprovados.splice(1, 0, 'Elemento1', 'Elemento2')  
+aprovados.sort()
+aprovados.forEach( (nome, index) =>{
+    console.log(`${index}. ${nome}`)
+})
 console.log(aprovados)
