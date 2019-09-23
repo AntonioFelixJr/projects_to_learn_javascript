@@ -1,0 +1,65 @@
+<h1>Projeto</h1>
+
+<ul class="tree">
+    <li >
+        <em wm-folder >Backend</em>
+        <ul id="backend">
+            <li>
+                <em wm-folder>App</em>
+                <ul id="app">
+                    <li>produto.js</li>
+                    <li>usuario.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <em wm-folder >Config</em>
+            <ul id="config">
+                <li>banco.js</li>
+                <li>rota.js</li>
+                <li>servidor.js</li>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <em wm-folder>Frontend</em>
+        <ul id="frontend">
+            <li>
+                <em wm-folder>Public</em>
+
+                <ul id="public">
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+
+<script>
+
+
+    document.querySelectorAll('[wm-folder]').forEach(folder => {
+        folder.onclick = function (e) {
+            const ul =  folder.nextElementSibling
+            const d = ul.style.display
+            ul.style.display = d === 'none' ? 'block' : 'none'
+        }
+    })
+
+function esconderDiv(qual) {
+    let visibilidade = document.getElementById(qual)
+    console.log( document.getElementById(qual).style.visibility)
+    
+    if (visibilidade.style.visibility === "hidden") {
+       document.getElementById(qual).style.visibility = "";
+    }
+    else{
+        document.getElementById(qual).style.visibility = "hidden";
+
+    }
+}
+
+</script>
