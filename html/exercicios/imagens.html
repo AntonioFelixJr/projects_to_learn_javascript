@@ -1,0 +1,79 @@
+<div wm-slider>
+  <p>
+    <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
+      alt="Muro da Cidade" width="513" height="342"
+      title="Muro da Cidade por Tarso Bessa">
+  <p>
+  
+  <p> 
+  <img src="http://files.cod3r.com.br/curso-web/imagem2.gif"
+      alt="Intro Cod3r" height="342">
+  </p>
+  
+  <p>
+    <img class="circular" src="http://files.cod3r.com.br/curso-web/imagem3.png"
+      alt="Circular" height="342">
+  </p>
+  
+  <p class="texto">
+    <img src="http://files.cod3r.com.br/curso-web/avatar.jpg"  
+      height="50" align="left" alt="Avatar">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Nam volutpat tortor massa, id venenatis nibh vulputate nec. 
+      Integer sollicitudin velit in lorem ornare, eu sollicitudin erat rhoncus. 
+      Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; 
+      Nunc vitae nunc ut quam finibus molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
+      Etiam in nulla quis velit convallis posuere ut vel nisi. Nam tempus, tortor quis facilisis maximus, lorem 
+      tellus venenatis dolor, et convallis elit risus nec odio. Nam blandit metus ut turpis fermentum pretium. 
+      Integer eleifend lacus eget nibh dignissim condimentum. Suspendisse semper turpis sit amet magna vestibulum 
+      lobortis. Nunc maximus vitae urna non faucibus. Nulla eleifend, massa eget auctor fringilla, diam diam efficitur 
+      massa, id gravida diam leo in sem. Nulla auctor luctus metus, non finibus metus maximus non. Sed aliquet nunc nec 
+      dolor pellentesque, et suscipit odio molestie.
+  </p>
+  
+  <p class="cidade"></p>
+  
+  <p>
+    <picture>
+        <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+          media="(min-width: 600px)">
+          <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+    </picture>
+  </p>
+</div>
+
+<script>
+  const slider = document.querySelector('[wm-slider]')
+  console.log(slider)
+</script>
+
+<style>
+    
+    .texto {
+      width: 400px;
+    }
+    
+    .texto img {
+      margin-right: 10px;
+    }
+    
+    .circular {
+      width: 513;
+      background-color: #444;
+    }
+    
+    .cidade {
+      width: 513px;
+      height: 342px;
+      background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 200%;
+    }
+
+    p {
+      position: absolute;
+      display: none;
+    }
+
+</style>
