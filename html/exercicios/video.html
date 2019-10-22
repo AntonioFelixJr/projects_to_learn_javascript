@@ -1,4 +1,4 @@
-<video id="meuVideo" width="800" height="450" autoplay>
+<video id="meuVideo" width="800" height="450" controls autoplay>
     <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
         Seu browser não suporta esse video
 </video>
@@ -31,27 +31,20 @@
 </style>
 
 <script>
-const video = document.getElementById('meuVideo')
-const play = document.querySelector('[wm-play]')
-const stop = document.querySelector('[wm-pause]')
-const progresso = document.querySelector('[wm-progresso] > div')
 
-play.addEventListener("click", function(){
-    video.play()
-})
-
-stop.addEventListener("click", function(){
-    video.pause()
-})
-
-setInterval(() => {
+function configurarVideo(id) {
+    const video = document.getElementById(id)
+    video.oncontextmenu = () => false 
     
-    const porBarraProgresso = barraProgresso(video.currentTime, video.duration)
-    progresso.style.width = `${porBarraProgresso}%`
-}, 100);
+    document.querySelector(`[wm-play=${id}]`).onclick = () => video.play()
+    document.querySelector(`[wm-pause=${id}]`).onclick = () => video.pause()
 
-
-function barraProgresso(atual ,duracao) {
-    return (atual * 100) / duracao
+    setInterval(() => {
+        const percentual = (video.currentTime / video.duration) * 100
+        const progresso = document.querySelector(`[wm-progresso=${id}] > div`)
+        progresso.style.width = `${percentual}%`
+    }, 100);
 }
+
+configurarVideo('meuVideo')
 </script>
