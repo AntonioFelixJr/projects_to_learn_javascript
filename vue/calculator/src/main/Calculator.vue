@@ -61,13 +61,14 @@ export default {
 
                 this.values[1] = 0
 
-                this.displayValue = this.values[0]
+                this.displayValue = this.values[0].toString()
                 this.operation = equals ? null : operation
                 this.current = equals ? 0 : 1
                 this.clearDisplay = !equals
             }
         },
         addDigit(n) {
+            
             if (n === "." && this.displayValue.includes(".")) {
                 return
             }
