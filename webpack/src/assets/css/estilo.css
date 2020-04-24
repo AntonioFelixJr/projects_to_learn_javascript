@@ -1,0 +1,7 @@
+body {
+    background-color: #c0c0c0;
+    background-image: url(../imgs/logo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
