@@ -6,8 +6,119 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
-    </style>
+        /* * {
+            color: cyan;
+            background-color: black;
+        } */
+        
+        /* .tag {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* #aprovados {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* #aninhado > div {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* #aninhado section {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* p + ul {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* p ~ ol {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* p + ul {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* [feira] {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* [feira="casa"] {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* [feira="escritorio empresa"] {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* [feira~=escritorio] {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* [feira*=asa] {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* span:nth-child(1) {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* section > :nth-child(odd) {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* section > :nth-child(even) {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* section > :nth-child(odd), ul, p {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        /* section > :nth-child(odd) label {
+            color: cyan;
+            background-color: black;
+        
+        } */
+
+        section > span:nth-of-type(2) {
+            color: cyan;
+            background-color: black;
+        }
+
+        </style>
 </head>
 
 <body>
@@ -29,7 +140,7 @@
             </ol>
             <div id='aninhado' class='tag'>
                 <div class="tag">
-                    <section class='tag'>
+                    <section class='tag nolabel'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
                         <span class='tag'>3</span>
