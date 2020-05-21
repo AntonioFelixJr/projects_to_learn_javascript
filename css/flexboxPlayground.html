@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-size: 40px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #CAF0F8;
+        }
+
+        .flex-container {
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .item {
+            border-radius: 5px;
+            -webkit-box-shadow: -2px 13px 30px -2px rgba(0,0,0,0.75);
+            -moz-box-shadow: -2px 13px 30px -2px rgba(0,0,0,0.75);
+            box-shadow: -2px 13px 30px -2px rgba(0,0,0,0.75);
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            margin: 10px;
+            color: white;
+            flex-basis: 220px;
+            background-color: #0077B6;
+        }
+
+        .title {
+            /* overflow: hidden; */
+            text-overflow: ellipsis; 
+            white-space: nowrap;
+            overflow: hidden; 
+            /* padding: 35px 0px; */
+            line-height: 100px;
+            height: 100px;
+            width: 200px;
+            font-size: 24px;
+            padding: 0px 10px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .imgFilm {
+            height: 250px;
+            width: 200px;
+            padding: 0px 10px;
+            padding-bottom: 10px;
+        }
+
+
+        .imgFilm > img {
+            height: 100%;
+            width: 100%;
+        }
+
+        input[name="search"] {
+            width: 100%;
+            border-width: 0px;
+            text-align: center;
+            color: white;
+            background-color: #0077B6;
+        }
+
+        input[name="search"]::placeholder {
+            color: whitesmoke;
+            opacity: 1; /* Firefox */
+        }
+
+    </style>
+    <title>Flexbox Playground</title>
+</head>
+<body>
+    <input type="text" placeholder="Digite o nome do filme..." name="search">
+
+    <div id="app" class="flex-container"></div>
+
+    <script>
+
+        const xhr = new XMLHttpRequest()
+        const input = document.getElementsByName('search')[0]
+
+        input.addEventListener('keyup', function(event) {
+
+            if (event.keyCode === 13) {
+
+                event.preventDefault();
+
+                xhr.onreadystatechange = function() {
+
+                    if(xhr.readyState == 4 && xhr.status == 200) {
+                    
+                        const films = JSON.parse(xhr.responseText)
+
+                        const mainElement = document.getElementById('app')
+
+                        mainElement.innerHTML = ''
+
+                        films.Search.forEach(film => {
+                            console.log(film.Title)
+                            
+                            createElement(film.Title, film.Year, film.Poster)                
+                        });
+                    }
+                }
+
+                xhr.open('GET', `http://www.omdbapi.com/?s=${input.value.trim()}&apikey=ad5b2377`)
+                xhr.send()
+
+            }
+        })
+
+        function createElement(title, year, imagePath) {
+
+            const mainElement = document.getElementById('app')
+
+            const divContainer = document.createElement('div')
+            const divTitle = document.createElement('div')
+            const h5Title = document.createElement('h5')
+            const divImg = document.createElement('div')
+            const img = document.createElement('img')
+
+            divContainer.setAttribute('class', 'item')
+
+            h5Title.setAttribute('class', 'title')
+            // title.length > 27 ? h5Title.style.fontSize = '14px': 
+            // title.length > 20 ? h5Title.style.fontSize = '18px': null
+            h5Title.textContent = title
+
+            divImg.setAttribute('class', 'imgFilm')
+            img.setAttribute('src', imagePath)
+            img.setAttribute('title', title)
+            img.setAttribute('alt', title.toUpperCase())
+
+            mainElement.appendChild(divContainer)
+            divContainer.appendChild(divTitle)
+            divTitle.appendChild(h5Title)
+            divContainer.appendChild(divImg)
+            divImg.appendChild(img)
+        }
+    </script>
+</body>
+</html>
